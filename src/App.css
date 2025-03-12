@@ -1,38 +1,402 @@
-.App {
-  text-align: center;
+/* General Reset & Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* Main App Container */
+.app {
+  max-width: 90%; /* Allow more space on larger screens */
+  margin: auto;
+  padding: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Forms */
+.upload-form,
+.chat-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow inputs to wrap on smaller screens */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Input Fields and Buttons */
+.input-field,
+.file-input {
+  flex: 1 1 auto; /* Allow growing and shrinking */
+  min-width: 200px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.upload-btn,
+.send-btn {
+  padding: 12px 20px;
+  border: none;
+  background: #007bff;
   color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+  flex: 0 0 auto; /* Don't shrink buttons */
 }
 
-.App-link {
-  color: #61dafb;
+.upload-btn:hover,
+.send-btn:hover {
+  background: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Chat Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+  width: 100%; /* Full width */
+}
+
+/* Chat Box */
+.chat-box {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  height: 400px; /* Slightly larger for better desktop view */
+  overflow-y: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chat Messages */
+.chat-message {
+  margin-bottom: 5px;
+  max-width: 80%; /* Limit message width */
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* Differentiate User and Bot */
+.chat-message.user {
+  align-self: flex-end;
+  background: #007bff;
+  color: white;
+  text-align: right;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: #e9ecef;
+  color: #333;
+  text-align: left;
+  border-bottom-left-radius: 0;
+}
+
+/* Input Field in Chat */
+.chat-form input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .upload-form,
+  .chat-form {
+    flex-direction: column;
+    align-items: stretch;
   }
+
+  .input-field,
+  .file-input,
+  .upload-btn,
+  .send-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .chat-box {
+    height: 300px; /* Smaller height for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .chat-message {
+    max-width: 90%; /* Use more width on smaller screens */
+    font-size: 0.9rem;
+  }
+
+  .chat-box {
+    height: 250px;
+  }
+}
+/* Upload Section Styling */
+.upload-section {
+  padding: 30px 20px;
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 400px; /* Set minimum height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+/* Uploaded Files List */
+.uploaded-files {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.uploaded-files ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.uploaded-files li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.uploaded-files li:last-child {
+  border-bottom: none;
+}
+
+/* Upload Form Tweaks */
+.upload-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.input-field, .file-input {
+  flex: 1 1 300px;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.upload-btn {
+  padding: 12px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.upload-btn:hover {
+  background: #0056b3;
+}
+/* About Section Styling */
+.about-section {
+  padding: 40px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; /* Make responsive on small screens */
+}
+
+.about-text {
+  flex: 1 1 55%; /* Take up about half of the space */
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: row; /* Stack vertically on small screens */
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
+
+  .about-text {
+    text-align: top;
+  }
+}
+
+/* .uploaded-files {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.uploaded-files h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.uploaded-files ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.uploaded-files li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.uploaded-files li:last-child {
+  border-bottom: none;
+} */
+/* Header and Navbar */
+.header {
+  margin-left: -10px;
+  width: 100%;
+  
+  background: #007bff;
+  color: white;
+  padding: 35px 10px;
+  height:30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.navbar a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.navbar a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar a {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header h2 {
+    margin-bottom: 10px;
+  }
+}
+
+/* Existing Chat + Upload styles remain as-is */
+.about-section {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 100%;
+}
+
+.about-section h1 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.about-section p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.about-section ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.about-section li {
+  margin-bottom: 8px;
 }
