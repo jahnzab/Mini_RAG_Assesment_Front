@@ -45,7 +45,7 @@ function App() {
 useEffect(() => {
   const fetchChatIds = async () => {
     try {
-      const res = await fetch("http://localhost:8000/list_chats/");
+      const res = await fetch("https://mini-rag-assesment-backend.onrender.com/list_chats/");
       if (!res.ok) throw new Error("Failed to fetch chat IDs");
       const data = await res.json();
       
@@ -74,7 +74,7 @@ useEffect(() => {
   
 const deleteChat = async (chatIdToDelete) => {
   try {
-    const response = await fetch(`http://localhost:8000/delete_chat/${chatIdToDelete}`, {
+    const response = await fetch(`https://mini-rag-assesment-backend.onrender.com/delete_chat/${chatIdToDelete}`, {
       method: 'DELETE',
     });
 
@@ -123,7 +123,7 @@ const deleteChat = async (chatIdToDelete) => {
   setUploading(true);  // Start loader
 
   try {
-    const response = await fetch('http://127.0.0.1:8000/upload_pdf/', {
+    const response = await fetch('https://mini-rag-assesment-backend.onrender.com/upload_pdf/', {
       method: 'POST',
       body: formData,
     });
@@ -176,7 +176,7 @@ const deleteChat = async (chatIdToDelete) => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/chat/', {
+      const response = await fetch('https://mini-rag-assesment-backend.onrender.com/chat/', {
         method: 'POST',
         body: formData,
       });
