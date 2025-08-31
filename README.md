@@ -15,6 +15,6 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm test`using DebugPanel
-
+(First Time the pdfs will take as its deployed on render so wait for 1 minutes then it will work faster and sometimes click button two times to check proper working)
 (Click on DebugPanel button in brwsser user interface at top right side or use ) or go (https://mini-rag-assesment-backend.onrender.com/health)
 
