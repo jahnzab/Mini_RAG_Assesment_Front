@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import DebugPanel from './DebugPanel';
 function App() {
   const [file, setFile] = useState(null);
   const [chatId, setChatId] = useState('');
@@ -14,33 +14,7 @@ function App() {
   const chatEndRef = useRef(null);
   const [uploading, setUploading] = useState(false);
 
-  // Load chat IDs and uploaded files from Local Storage on first render
-  // useEffect(() => {
-  //   const storedChatIds = JSON.parse(localStorage.getItem('chatIds')) || [];
-  //   setChatIds(storedChatIds);
-  // }, []);
-//   useEffect(() => {
-//   const fetchChatIds = async () => {
-//     try {
-//       const res = await fetch("http://localhost:8000/list_chats/");
-//       if (!res.ok) throw new Error("Failed to fetch chat IDs");
-
-//       const data = await res.json();
-//       setChatIds(data.chat_ids);
-
-//       // Keep localStorage in sync (optional)
-//       localStorage.setItem("chatIds", JSON.stringify(data.chat_ids));
-//     } catch (err) {
-//       console.error("❌ Error fetching chat IDs:", err);
-
-//       // fallback to localStorage if backend fails
-//       const storedChatIds = JSON.parse(localStorage.getItem("chatIds")) || [];
-//       setChatIds(storedChatIds);
-//     }
-//   };
-
-//   fetchChatIds();
-// }, []);
+  
 
 useEffect(() => {
   const fetchChatIds = async () => {
@@ -204,7 +178,11 @@ const deleteChat = async (chatIdToDelete) => {
 
   return (
     <div className="app">
+
+    {/* Add Debug Panel at the top */}
+      <DebugPanel />
       {/* Header */}
+    
       <header className="header">
         <h2>🤖 Multiple-PDF Chat using RAG + Grok 3</h2>
         <div className="model-info">
