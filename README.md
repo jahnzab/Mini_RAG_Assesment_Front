@@ -6,10 +6,10 @@ This project was bootstrapped with [Create React App]
 
 In the project directory, you can run:
 
-### `npm start`90
+### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000] or (https://mini-rag-assesment-front.vercel.app/) to view it in your browser.
+npm start Opens [http://localhost:3000] or go to deploy link (https://mini-rag-assesment-front.vercel.app/) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
