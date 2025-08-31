@@ -242,7 +242,8 @@ const deleteChat = async (chatIdToDelete) => {
     </div>
   </div>
 </section>
-
+       {/* Add Debug Panel at the top */}
+      <DebugPanel />
       {/* Upload Section */}
       <div id="upload-section" className="upload-section">
         <h1 id="upload">📤 Upload PDFs</h1>
