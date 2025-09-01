@@ -14,7 +14,7 @@ body {
 }
 
 .app {
-  min-height: 200vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -453,3 +453,276 @@ body {
   }
 
   /* Mobile Chat Styles */
+  .chat-container {
+    height: 400px;
+  }
+
+  .chat-box {
+    max-height: 300px;
+  }
+
+  .chat-message {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .chat-message.user {
+    margin-left: 10%;
+  }
+
+  .chat-message.bot {
+    margin-right: 10%;
+  }
+
+  .chat-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .send-btn {
+    width: 100%;
+  }
+
+  /* Mobile Model Info */
+  .model-info {
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  /* Mobile About Section */
+  .about-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-text h4 {
+    font-size: 1.1rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Uploaded Files */
+  .uploaded-files {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .uploaded-files h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem;
+  }
+
+  .app-title {
+    font-size: 1rem;
+  }
+
+  .main-content {
+    padding: 0.75rem;
+  }
+
+  .section-content {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .input-field {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .upload-btn, .delete-btn, .send-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .chat-container {
+    height: 350px;
+  }
+
+  .chat-box {
+    max-height: 250px;
+    padding: 0.75rem;
+  }
+
+  .chat-message {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chat-message.user {
+    margin-left: 5%;
+  }
+
+  .chat-message.bot {
+    margin-right: 5%;
+  }
+
+  .about-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .about-text h4 {
+    font-size: 1rem;
+  }
+
+  .about-text {
+    font-size: 0.85rem;
+  }
+
+  .model-info {
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .chat-container {
+    height: 300px;
+  }
+
+  .chat-box {
+    max-height: 200px;
+  }
+
+  .section-content {
+    min-height: 300px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .desktop-nav {
+    order: 2;
+  }
+
+  .app-title {
+    order: 1;
+  }
+
+  .model-info {
+    order: 3;
+    margin-top: 0;
+  }
+
+  .chat-message.user {
+    margin-left: 15%;
+  }
+
+  .chat-message.bot {
+    margin-right: 15%;
+  }
+}
+
+/* Accessibility and Focus Styles */
+.nav-btn:focus,
+.mobile-nav-btn:focus,
+.input-field:focus,
+.upload-btn:focus,
+.delete-btn:focus,
+.send-btn:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.upload-btn:disabled,
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Chat */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
+}
+
+/* Touch-friendly button sizes for mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px; /* iOS recommended touch target size */
+    min-width: 44px;
+  }
+
+  .mobile-menu-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  }
+
+  .header {
+    background: rgba(26, 32, 44, 0.95);
+  }
+
+  .section-content {
+    background: rgba(26, 32, 44, 0.95);
+    color: #e2e8f0;
+  }
+
+  .input-field {
+    background: rgba(45, 55, 72, 0.8);
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+
+  .chat-message.bot {
+    background: rgba(45, 55, 72, 0.8);
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+
+  .about-text h1,
+  .about-text h4,
+  .about-text p,
+  .about-text li {
+    color: #e2e8f0;
+  }
+}
