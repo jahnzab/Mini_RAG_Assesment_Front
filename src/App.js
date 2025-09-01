@@ -410,13 +410,7 @@ function App() {
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="mobile-menu">
-            <button 
-              className={`mobile-nav-btn ${activeSection === 'upload' ? 'active' : ''}`}
-              onClick={() => handleSectionChange('upload')}
-            >
-              📤 Upload PDF
-            </button>
-            <button 
+          <button 
               className={`mobile-nav-btn ${activeSection === 'about' ? 'active' : ''}`}
               onClick={() => handleSectionChange('about')}
             >
@@ -426,6 +420,13 @@ function App() {
               className={`mobile-nav-btn ${activeSection === 'files' ? 'active' : ''}`}
               onClick={() => handleSectionChange('files')}
             >
+            <button 
+              className={`mobile-nav-btn ${activeSection === 'upload' ? 'active' : ''}`}
+              onClick={() => handleSectionChange('upload')}
+            >
+              📤 Upload PDF
+            </button>
+            
               📁 Files
             </button>
             <button 
