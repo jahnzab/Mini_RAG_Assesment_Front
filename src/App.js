@@ -360,7 +360,7 @@ function App() {
       {/* Mobile Header with Hamburger Menu */}
       <header className="header">
         <div className="header-content">
-          <h2 className="app-title">🤖 RAG Chat</h2>
+          <h2 className="app-title">Multi PDF RAG Chat</h2>
           
           {/* Desktop Navigation */}
           <nav className="navbar desktop-nav">
