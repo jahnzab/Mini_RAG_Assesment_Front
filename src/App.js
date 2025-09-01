@@ -364,18 +364,20 @@ function App() {
           
           {/* Desktop Navigation */}
           <nav className="navbar desktop-nav">
+              <button 
+              className={`nav-btn ${activeSection === 'about' ? 'active' : ''}`}
+              onClick={() => handleSectionChange('about')}
+            >
+              About
+            </button>
+            
             <button 
               className={`nav-btn ${activeSection === 'upload' ? 'active' : ''}`}
               onClick={() => handleSectionChange('upload')}
             >
               Upload
             </button>
-            <button 
-              className={`nav-btn ${activeSection === 'about' ? 'active' : ''}`}
-              onClick={() => handleSectionChange('about')}
-            >
-              About
-            </button>
+          
             <button 
               className={`nav-btn ${activeSection === 'files' ? 'active' : ''}`}
               onClick={() => handleSectionChange('files')}
@@ -407,26 +409,26 @@ function App() {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+       {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="mobile-menu">
-          <button 
+          
+            <button 
               className={`mobile-nav-btn ${activeSection === 'about' ? 'active' : ''}`}
               onClick={() => handleSectionChange('about')}
             >
               ℹ️ About
             </button>
-            <button 
-              className={`mobile-nav-btn ${activeSection === 'files' ? 'active' : ''}`}
-              onClick={() => handleSectionChange('files')}
-            >
-            <button 
+                  <button 
               className={`mobile-nav-btn ${activeSection === 'upload' ? 'active' : ''}`}
               onClick={() => handleSectionChange('upload')}
             >
               📤 Upload PDF
             </button>
-            
+            <button 
+              className={`mobile-nav-btn ${activeSection === 'files' ? 'active' : ''}`}
+              onClick={() => handleSectionChange('files')}
+            >
               📁 Files
             </button>
             <button 
@@ -443,6 +445,7 @@ function App() {
             </button>
           </div>
         )}
+
 
         {/* Model Info */}
         <div className="model-info">
